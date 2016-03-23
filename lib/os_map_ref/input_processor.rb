@@ -6,10 +6,13 @@ class InputProcessor
   end
   
   def params
-    if map_reference_pattern =~ input
+    case input
+    when map_reference_pattern
       map_reference_params
-    else
+    when easting_northing_pattern
       easting_northing_params
+    else
+      raise OsMapRef::Error, "Unable to process input #{input}"
     end
   end
   

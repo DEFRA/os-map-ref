@@ -57,5 +57,11 @@ module OsMapRef
       assert_equal expected, input_cleaner.params
     end
     
+    def test_unknown_input
+      assert_raises OsMapRef::Error do
+        InputProcessor.new('unknown').params
+      end
+    end
+    
   end
 end
