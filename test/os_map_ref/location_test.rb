@@ -19,6 +19,41 @@ module OsMapRef
       assert_equal northing, @location.northing
     end
     
+    def test_map_reference_when_created_with_easting_and_northing
+      test_new_with_easting_and_northing
+      assert_equal map_reference, @location.map_reference
+    end
+    
+    def test_grid_easting
+      test_new_with_easting_and_northing
+      assert_equal 3, @location.grid_easting
+    end
+    
+    def test_short_easting
+      test_new_with_easting_and_northing
+      assert_equal 58901, @location.short_easting
+    end
+    
+    def test_grid_northing
+      test_new_with_easting_and_northing
+      assert_equal 1, @location.grid_northing
+    end
+    
+    def test_grid_northing_with_long_northing
+      @location = Location.new easting: easting, northing: 1171053
+      assert_equal 11, @location.grid_northing
+    end
+    
+    def test_short_northing
+      test_new_with_easting_and_northing
+      assert_equal 71053, @location.short_northing
+    end
+    
+    def test_short_northing_with_long_northing
+      test_grid_northing_with_long_northing
+      assert_equal 71053, @location.short_northing
+    end
+    
     def map_reference
       'ST 58901 71053'
     end
