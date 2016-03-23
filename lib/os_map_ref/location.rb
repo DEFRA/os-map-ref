@@ -1,6 +1,12 @@
 require 'matrix'
 module OsMapRef
   class Location
+    
+    def self.for(text)
+      input_processor = InputProcessor.new(text)
+      new input_processor.params
+    end
+    
     def initialize(args={})
       @map_reference = args[:map_reference].freeze if args[:map_reference]
       @easting = args[:easting].to_i if args[:easting]
