@@ -19,8 +19,8 @@ class InputProcessor
   
   def easting_northing_params
     {
-      easting: nil,
-      northing: nil
+      easting: easting_and_northing[0],
+      northing: easting_and_northing[1]
     }
   end
   
@@ -68,6 +68,19 @@ class InputProcessor
   
   def map_reference_pattern
     /([a-zA-Z]{2})\s*(\d{3,5})\s*(\d{3,6})/
+  end
+  
+  def easting_and_northing
+    @easting_and_northing ||= get_easting_and_northing
+  end
+    
+  def get_easting_and_northing
+    match = easting_northing_pattern.match input
+    (1..2).collect{|n| match[n].ljust(6, '0').to_i}
+  end
+  
+  def easting_northing_pattern
+    /(\d{3,6})[\,\s]+(\d{3,6})/
   end
   
 end

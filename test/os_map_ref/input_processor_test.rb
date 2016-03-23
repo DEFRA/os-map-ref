@@ -29,5 +29,33 @@ module OsMapRef
       assert_equal 'ST 58900 71000', input_cleaner.params[:map_reference]
     end
     
+    def test_northing_and_easting
+      input = [easting, northing].join(' ')
+      input_cleaner = InputProcessor.new(input)
+      expected = {easting: easting, northing: northing}
+      assert_equal expected, input_cleaner.params
+    end
+    
+    def test_northing_and_easting_with_comma
+      input = [easting, northing].join(',')
+      input_cleaner = InputProcessor.new(input)
+      expected = {easting: easting, northing: northing}
+      assert_equal expected, input_cleaner.params
+    end
+    
+    def test_northing_and_easting_with_comma_and_space
+      input = [easting, northing].join(', ')
+      input_cleaner = InputProcessor.new(input)
+      expected = {easting: easting, northing: northing}
+      assert_equal expected, input_cleaner.params
+    end
+    
+    def test_short_northing_and_easting
+      input = ['123', '456'].join(' ')
+      input_cleaner = InputProcessor.new(input)
+      expected = {easting: 123000, northing: 456000}
+      assert_equal expected, input_cleaner.params
+    end
+    
   end
 end
