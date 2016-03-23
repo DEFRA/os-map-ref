@@ -64,17 +64,5 @@ module OsMapRef
       assert_equal 71053, @location.short_northing
     end
     
-    def map_reference
-      'ST 58901 71053'
-    end
-    
-    def northing
-      171053
-    end
-    
-    def easting
-      358901
-    end
-    
   end
 end
