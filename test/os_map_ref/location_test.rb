@@ -24,6 +24,16 @@ module OsMapRef
       assert_equal map_reference, @location.map_reference
     end
     
+    def test_northing_when_created_with_map_reference
+      test_new_with_map_reference
+      assert_equal easting, @location.easting
+    end
+    
+    def test_eastings_when_created_with_map_reference
+      test_new_with_map_reference
+      assert_equal northing, @location.northing
+    end
+    
     def test_grid_easting
       test_new_with_easting_and_northing
       assert_equal 3, @location.grid_easting
