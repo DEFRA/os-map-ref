@@ -41,6 +41,35 @@ location.northing      == 171043
 location.map_reference == 'ST 58801 71043'
 ```
 
+### From OS Map Reference to Longitude and Latitude
+
+If your end result needs to be longitude and latitude, you can combine the
+OsMapRef output with that of another gem: 
+[global_convert](https://github.com/reggieb/global_convert)
+
+For example
+
+```ruby
+require 'global_convert'
+require 'os_map_ref'
+
+os_location = OsMapRef::Location.for 'ST 58801 71043'
+
+location = GlobalConvert::Location.new(
+  input: {
+    projection: :osgb36,
+    lon: os_location.easting,
+    lat: os_location.northing
+  },
+  output: {
+    projection: :wgs84
+  }
+)
+
+puts "Latitude = #{location.lat} in radians."
+puts "Longitude = #{location.lon} in radians."
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. 
