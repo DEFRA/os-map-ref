@@ -7,23 +7,27 @@ References from a range of text inputs.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your application's Gemfile
 
 ```ruby
 gem 'os_map_ref'
 ```
 
-And then execute:
+And then update your dependencies by calling
 
-    $ bundle
+```bash
+$ bundle install
+```
 
-Or install it yourself as:
+Or install it yourself as
 
-    $ gem install os_map_ref
+```bash
+$ gem install os_map_ref
+```
 
 ## Usage
 
-To convert a map reference to eastings and northings:
+To convert a map reference to eastings and northings
 
 ```ruby
 location = OsMapRef::Location.for 'ST5880171043'
@@ -33,7 +37,7 @@ location.northing      == 171043
 location.map_reference == 'ST 58801 71043'
 ```
 
-To convert eastings and northings to a map reference:
+To convert eastings and northings to a map reference
 
 ```ruby
 location = OsMapRef::Location.for '358801, 171043'
@@ -46,7 +50,7 @@ location.map_reference == 'ST 58801 71043'
 ### From OS Map Reference to Longitude and Latitude
 
 If your end result needs to be longitude and latitude, you can combine the
-OsMapRef output with that of another gem:
+OsMapRef output with that of another gem called
 [global_convert](https://github.com/reggieb/global_convert)
 
 For example
@@ -80,9 +84,11 @@ for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`.
 
-## Contributing
+## Contributing to this project
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/reggieb/os_map_ref.
+If you have an idea you'd like to contribute please log an issue.
+
+All contributions should be submitted via a pull request.
 
 ## License
 
