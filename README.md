@@ -1,5 +1,7 @@
 # OsMapRef
 
+[![Build Status](https://travis-ci.org/EnvironmentAgency/os_map_ref.svg?branch=master)](https://travis-ci.org/EnvironmentAgency/os_map_ref)
+
 This gem allows you to gather U.K. Ordnance Survey Eastings, North, and Map
 References from a range of text inputs.
 
