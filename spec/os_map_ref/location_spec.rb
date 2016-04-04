@@ -3,10 +3,10 @@ require "spec_helper"
 describe OsMapRef::Location do
   
   let(:map_reference) { 'ST 58901 71053' }
-  let(:long_map_reference) { 'ST 58901 121053' }
-  let(:easting) { 358901 }
-  let(:northing) { 171053 }
-  let(:long_northing) { 1171053 }
+  let(:easting) { "358901" }
+  let(:northing) { "171053" }
+  let(:long_map_reference) { "HT 58901 71053" }
+  let(:long_northing) { "1171053" }
 
   describe ".for" do
     it "should accept a map reference" do
@@ -101,7 +101,7 @@ describe OsMapRef::Location do
     end
   end
   
-  context "when initiated with easting and northing" do
+  context "when initiated with easting and long northing" do
     let(:location) { described_class.new easting: easting, northing: long_northing }
     
     describe ".grid_northing" do
@@ -119,14 +119,102 @@ describe OsMapRef::Location do
   
   context "when eastings and northing second character a zero" do
     let(:map_reference) { 'ST 08901 01053' }
-    let(:easting) { 308901 }
-    let(:northing) { 101053 }
+    let(:easting) { "308901" }
+    let(:northing) { "101053" }
     let(:location) { described_class.new easting: easting, northing: northing }
     
     describe ".map_reference" do
       it "should be calculated from easting and northing" do
         expect(location.map_reference).to eq(map_reference)
       end
+    end
+  end
+  
+  context "when eastings and northing contain decimals" do
+    let(:map_reference) { 'ST 08901 01053' }
+    let(:easting) { "308901.4" }
+    let(:northing) { "101053.3" }
+    let(:location) { described_class.new easting: easting, northing: northing }
+    
+    describe ".map_reference" do
+      it "should be calculated from easting and northing" do
+        expect(location.map_reference).to eq(map_reference)
+      end
+    end
+  end
+  
+  context "when eastings and northing is one unit into grid from origin" do
+    let(:map_reference) { 'SV 00001 00001' }
+    let(:easting) { "000001" }
+    let(:northing) { "000001" }
+
+    context "and eastings and northings defined" do
+      let(:location) { described_class.new easting: easting, northing: northing }
+
+      describe ".map_reference" do
+        it "should be calculated from easting and northing" do
+          expect(location.map_reference).to eq(map_reference)
+        end
+      end
+    end
+    
+    context "and map reference is defined" do
+      let(:location) { described_class.new map_reference: map_reference }
+
+      describe ".easting" do
+        it "should be calculated from map_reference" do
+          expect(location.easting).to eq(easting)
+        end
+      end
+
+      describe ".northing" do
+        it "should be calculated from map_reference" do
+          expect(location.northing).to eq(northing)
+        end
+      end
+    end
+  end
+  
+  context "when northing is long" do
+    let(:map_reference) { long_map_reference }
+    let(:northing) { long_northing }
+
+    context "and eastings and northings defined" do
+      let(:location) { described_class.new easting: easting, northing: northing }
+
+      describe ".map_reference" do
+        it "should be calculated from easting and northing" do
+          expect(location.map_reference).to eq(map_reference)
+        end
+      end
+    end
+    
+    context "and map reference is defined" do
+      let(:location) { described_class.new map_reference: map_reference }
+
+      describe ".easting" do
+        it "should be calculated from map_reference" do
+          expect(location.easting).to eq(easting)
+        end
+      end
+
+      describe ".northing" do
+        it "should be calculated from map_reference" do
+          expect(location.northing).to eq(northing)
+        end
+      end
+    end
+  end
+  
+  describe ".remove_decimals" do
+    let(:location) { described_class.new map_reference: map_reference }
+    
+    it "should return the number if no decimals" do
+      expect(location.remove_decimals "308901").to eq("308901")
+    end
+    
+    it "should return the number with decimals removed" do
+      expect(location.remove_decimals "308901.4").to eq("308901")
     end
   end
 end

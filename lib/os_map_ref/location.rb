@@ -9,8 +9,12 @@ module OsMapRef
 
     def initialize(args={})
       @map_reference = args[:map_reference].freeze if args[:map_reference]
-      @easting = args[:easting].to_i if args[:easting]
-      @northing = args[:northing].to_i if args[:northing]
+      @easting = remove_decimals(args[:easting]) if args[:easting]
+      @northing = remove_decimals(args[:northing]) if args[:northing]
+    end
+    
+    def remove_decimals(number)
+      number.to_s.sub /\.\d*/, ""
     end
 
     def map_reference
@@ -50,11 +54,11 @@ module OsMapRef
     end
 
     def easting
-      @easting ||= easting_from_map_reference.to_i
+      @easting ||= easting_from_map_reference
     end
 
     def northing
-      @northing ||= northing_from_map_reference.to_i
+      @northing ||= northing_from_map_reference
     end
 
     def northing_from_map_reference
