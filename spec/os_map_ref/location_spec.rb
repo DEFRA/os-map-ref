@@ -84,7 +84,7 @@ describe OsMapRef::Location do
     
     describe ".short_easting" do
       it "should be number after first number of easting" do
-        expect(location.short_easting).to eq(58901)
+        expect(location.short_easting).to eq("58901")
       end
     end
     
@@ -96,7 +96,7 @@ describe OsMapRef::Location do
     
     describe ".short_northing" do
       it "should be number after first number of northing" do
-        expect(location.short_northing).to eq(71053)
+        expect(location.short_northing).to eq("71053")
       end
     end
   end
@@ -112,9 +112,22 @@ describe OsMapRef::Location do
     
     describe ".short_northing" do
       it "should be the number after the first two numbers of northing" do
-        expect(location.short_northing).to eq(71053)
+        expect(location.short_northing).to eq("71053")
       end
     end
-  end  
+  end
+  
+  context "when eastings and northing second character a zero" do
+    let(:map_reference) { 'ST 08901 01053' }
+    let(:easting) { 308901 }
+    let(:northing) { 101053 }
+    let(:location) { described_class.new easting: easting, northing: northing }
+    
+    describe ".map_reference" do
+      it "should be calculated from easting and northing" do
+        expect(location.map_reference).to eq(map_reference)
+      end
+    end
+  end
 end
 

@@ -26,7 +26,7 @@ module OsMapRef
     end
 
     def short_easting
-      easting.to_s[1..-1].to_i
+      easting.to_s[1..-1]
     end
 
     def long_northing?
@@ -38,7 +38,7 @@ module OsMapRef
     end
 
     def short_northing
-      northing.to_s[chars_in_northing_start..-1].to_i
+      northing.to_s[chars_in_northing_start..-1]
     end
 
     def chars_in_northing_start
