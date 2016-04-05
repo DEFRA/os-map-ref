@@ -2,10 +2,10 @@ require "spec_helper"
 
 describe OsMapRef::InputProcessor do
 
-  let(:map_reference) { 'ST 58901 71053' }
-  let(:long_map_reference) { 'ST 58901 121053' }
-  let(:easting) { 358901 }
-  let(:northing) { 171053 }
+  let(:map_reference) { "ST 58901 71053" }
+  let(:long_map_reference) { "HT 58901 71053" }
+  let(:easting) { "358901" }
+  let(:northing) { "171053" }
 
   describe ".new" do
     context 'with map reference' do
@@ -68,9 +68,27 @@ describe OsMapRef::InputProcessor do
     
     context 'with short eastings and northings' do
       it 'should pad out short input' do
-        input = ['123', '456'].join(' ')
+        input = "123 456"
         input_cleaner = described_class.new(input)
-        expected = {easting: 123000, northing: 456000}
+        expected = {easting: "123000", northing: "456000"}
+        expect(input_cleaner.params).to eq(expected)
+      end
+    end
+    
+    context 'with short eastings and northings, but longer northing' do
+      it 'should pad out short input' do
+        input = "456 1234"
+        input_cleaner = described_class.new(input)
+        expected = {easting: "456000", northing: "1234000"}
+        expect(input_cleaner.params).to eq(expected)
+      end
+    end
+    
+    context "with decimals in eastings and northings" do
+      it "should pass on the decimal elements" do
+        input = "308901.4,101053.3"
+        input_cleaner = described_class.new(input)
+        expected = {easting: "308901.4", northing: "101053.3"}
         expect(input_cleaner.params).to eq(expected)
       end
     end
