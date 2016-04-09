@@ -1,6 +1,8 @@
 # OsMapRef
 
 [![Build Status](https://travis-ci.org/EnvironmentAgency/os_map_ref.svg?branch=master)](https://travis-ci.org/EnvironmentAgency/os_map_ref)
+[![Code Climate](https://codeclimate.com/github/EnvironmentAgency/os_map_ref/badges/gpa.svg)](https://codeclimate.com/github/EnvironmentAgency/os_map_ref)
+[![Test Coverage](https://codeclimate.com/github/EnvironmentAgency/os_map_ref/badges/coverage.svg)](https://codeclimate.com/github/EnvironmentAgency/os_map_ref/coverage)
 [![Gem Version](https://badge.fury.io/rb/os_map_ref.svg)](https://badge.fury.io/rb/os_map_ref)
 
 This gem allows you to gather U.K. Ordnance Survey Eastings, North, and Map
