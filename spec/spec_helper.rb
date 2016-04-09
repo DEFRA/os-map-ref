@@ -1,3 +1,5 @@
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
 require_relative '../lib/os_map_ref'
 
 RSpec.configure do |config|
