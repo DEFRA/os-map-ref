@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe OsMapRef::Location do
-  
+
   let(:map_reference) { 'ST 58901 71053' }
   let(:easting) { "358901" }
   let(:northing) { "171053" }
@@ -13,25 +13,30 @@ describe OsMapRef::Location do
       location = described_class.for map_reference
       expect(location.map_reference).to eq(map_reference)
     end
-    
+
     it "should accept a map reference without space" do
       location = described_class.for map_reference.delete(' ')
       expect(location.map_reference).to eq(map_reference)
     end
-    
+
+    it "should accept a downcase map reference" do
+      location = described_class.for map_reference.downcase
+      expect(location.map_reference).to eq(map_reference)
+    end
+
     it "should accept easting and northing" do
       location = described_class.for [easting, northing].join(' ')
       expect(location.map_reference).to eq(map_reference)
     end
   end
-  
-  describe ".new" do   
+
+  describe ".new" do
     it "should accept easting and northing strings" do
       location = described_class.new easting: easting.to_s, northing: northing.to_s
       expect(location.easting).to eq(easting)
       expect(location.northing).to eq(northing)
     end
-  
+
     context "when initiated with map_reference" do
       let(:location) { described_class.new map_reference: map_reference }
 
@@ -52,7 +57,7 @@ describe OsMapRef::Location do
           expect(location.northing).to eq(northing)
         end
       end
-    end  
+    end
 
     context "when initiated with easting and northing" do
       let(:location) { described_class.new easting: easting, northing: northing }
@@ -173,17 +178,17 @@ describe OsMapRef::Location do
           end
         end
       end
-      
+
       context "when grid_reference prefix not in grid" do
         let(:map_reference) { 'zz 00001 00001' }
         let(:location) { described_class.new map_reference: map_reference }
-        
+
         it "should raise an exception" do
           expect{
             location.easting
           }.to raise_error(OsMapRef::Error)
         end
-        
+
       end
     end
 
@@ -217,15 +222,15 @@ describe OsMapRef::Location do
         end
       end
     end
-  end  
-  
+  end
+
   describe ".remove_decimals" do
     let(:location) { described_class.new map_reference: map_reference }
-    
+
     it "should return the number if no decimals" do
       expect(location.remove_decimals "308901").to eq("308901")
     end
-    
+
     it "should return the number with decimals removed" do
       expect(location.remove_decimals "308901.4").to eq("308901")
     end

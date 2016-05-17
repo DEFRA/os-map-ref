@@ -30,7 +30,7 @@ module OsMapRef
 
     def processed_map_reference
       [
-        grid_letters,
+        grid_letters.upcase,
         padded_map_reference_easting,
         padded_map_reference_northing
       ].join(' ')
@@ -88,25 +88,25 @@ module OsMapRef
         northing.ljust(length, padding)
       ]
     end
-    
+
     def extended_length
       normal_length + 1
     end
-    
+
     def normal_length
       6
     end
-    
+
     def padding
       '0'
     end
-        
+
     # Matches are:
     # 1: First digits which may be followed with a decimal point and more digits
     # 2: The decimal point and trailing digits from first match (if present)
     # 3: Second digits which may be followed with a decimal point and more digits
     # 4: The decimal point and trailing digits from second match (if present)
-    # So: 
+    # So:
     # "1234.5, 6789.0" --> 1: "1234.5", 2: ".5", 3: "6789.0", 4: ".0"
     # "1234 6789"      --> 1: "1234",   2: nil,  3: "6789",   4: nil
     def easting_northing_pattern
