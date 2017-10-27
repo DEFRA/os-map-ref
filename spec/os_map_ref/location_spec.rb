@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe OsMapRef::Location do
 
-  let(:map_reference) { 'ST 58901 71053' }
+  let(:map_reference) { "ST 58901 71053" }
   let(:easting) { "358901" }
   let(:northing) { "171053" }
   let(:long_map_reference) { "HT 58901 71053" }
@@ -15,7 +15,7 @@ describe OsMapRef::Location do
     end
 
     it "should accept a map reference without space" do
-      location = described_class.for map_reference.delete(' ')
+      location = described_class.for map_reference.delete(" ")
       expect(location.map_reference).to eq(map_reference)
     end
 
@@ -25,7 +25,7 @@ describe OsMapRef::Location do
     end
 
     it "should accept easting and northing" do
-      location = described_class.for [easting, northing].join(' ')
+      location = described_class.for [easting, northing].join(" ")
       expect(location.map_reference).to eq(map_reference)
     end
   end
@@ -92,7 +92,6 @@ describe OsMapRef::Location do
         end
       end
 
-
       describe ".grid_northing" do
         it "should be first number of northing" do
           expect(location.grid_northing).to eq(1)
@@ -123,7 +122,7 @@ describe OsMapRef::Location do
     end
 
     context "when eastings and northing second character a zero" do
-      let(:map_reference) { 'ST 08901 01053' }
+      let(:map_reference) { "ST 08901 01053" }
       let(:easting) { "308901" }
       let(:northing) { "101053" }
       let(:location) { described_class.new easting: easting, northing: northing }
@@ -136,7 +135,7 @@ describe OsMapRef::Location do
     end
 
     context "when eastings and northing contain decimals" do
-      let(:map_reference) { 'ST 08901 01053' }
+      let(:map_reference) { "ST 08901 01053" }
       let(:easting) { "308901.4" }
       let(:northing) { "101053.3" }
       let(:location) { described_class.new easting: easting, northing: northing }
@@ -149,7 +148,7 @@ describe OsMapRef::Location do
     end
 
     context "when eastings and northing is one unit into grid from origin" do
-      let(:map_reference) { 'SV 00001 00001' }
+      let(:map_reference) { "SV 00001 00001" }
       let(:easting) { "000001" }
       let(:northing) { "000001" }
 
@@ -180,11 +179,11 @@ describe OsMapRef::Location do
       end
 
       context "when grid_reference prefix not in grid" do
-        let(:map_reference) { 'zz 00001 00001' }
+        let(:map_reference) { "zz 00001 00001" }
         let(:location) { described_class.new map_reference: map_reference }
 
         it "should raise an exception" do
-          expect{
+          expect {
             location.easting
           }.to raise_error(OsMapRef::Error)
         end
@@ -228,12 +227,11 @@ describe OsMapRef::Location do
     let(:location) { described_class.new map_reference: map_reference }
 
     it "should return the number if no decimals" do
-      expect(location.remove_decimals "308901").to eq("308901")
+      expect(location.remove_decimals("308901")).to eq("308901")
     end
 
     it "should return the number with decimals removed" do
-      expect(location.remove_decimals "308901.4").to eq("308901")
+      expect(location.remove_decimals("308901.4")).to eq("308901")
     end
   end
 end
-

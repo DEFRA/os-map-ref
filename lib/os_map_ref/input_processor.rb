@@ -18,7 +18,7 @@ module OsMapRef
     end
 
     def map_reference_params
-      {map_reference: processed_map_reference}
+      { map_reference: processed_map_reference }
     end
 
     def easting_northing_params
@@ -33,20 +33,20 @@ module OsMapRef
         grid_letters.upcase,
         padded_map_reference_easting,
         padded_map_reference_northing
-      ].join(' ')
+      ].join(" ")
     end
 
     def map_reference_elements
-      @map_reference_elements ||= get_map_reference_elements
+      @map_reference_elements ||= determine_map_reference_elements
     end
 
-    def get_map_reference_elements
+    def determine_map_reference_elements
       match = map_reference_pattern.match input
-      (1..3).collect{|n| match[n]}
+      (1..3).collect { |n| match[n] }
     end
 
     def grid_letters
-       map_reference_elements[0]
+      map_reference_elements[0]
     end
 
     def map_reference_easting
@@ -75,10 +75,10 @@ module OsMapRef
     end
 
     def easting_and_northing
-      @easting_and_northing ||= get_easting_and_northing
+      @easting_and_northing ||= determine_easting_and_northing
     end
 
-    def get_easting_and_northing
+    def determine_easting_and_northing
       match = easting_northing_pattern.match input
       easting = match[1]
       northing = match[3]
@@ -98,7 +98,7 @@ module OsMapRef
     end
 
     def padding
-      '0'
+      "0"
     end
 
     # Matches are:
@@ -110,8 +110,8 @@ module OsMapRef
     # "1234.5, 6789.0" --> 1: "1234.5", 2: ".5", 3: "6789.0", 4: ".0"
     # "1234 6789"      --> 1: "1234",   2: nil,  3: "6789",   4: nil
     def easting_northing_pattern
-      eastings = /\d{3,6}/    # 3 to 6 digits
-      northings = /\d{3,7}/    # 3 to 7 digits
+      eastings = /\d{3,6}/  # 3 to 6 digits
+      northings = /\d{3,7}/ # 3 to 7 digits
       decimals = /\.\d+/    # decimal point and trailing digits
       separator = /[\,\s]+/ # commas or spaces
       /(#{eastings}(#{decimals})?)#{separator}(#{northings}(#{decimals})?)/
