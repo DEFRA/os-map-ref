@@ -1,4 +1,4 @@
-require_relative 'spec_helper'
+require_relative "spec_helper"
 
 describe OsMapRef do
 
@@ -8,4 +8,3 @@ describe OsMapRef do
     end
   end
 end
-

@@ -1,4 +1,5 @@
-require 'matrix'
+require "matrix"
+
 module OsMapRef
   class Location
 
@@ -7,14 +8,14 @@ module OsMapRef
       new input_processor.params
     end
 
-    def initialize(args={})
+    def initialize(args = {})
       @map_reference = args[:map_reference].freeze if args[:map_reference]
       @easting = remove_decimals(args[:easting]) if args[:easting]
       @northing = remove_decimals(args[:northing]) if args[:northing]
     end
-    
+
     def remove_decimals(number)
-      number.to_s.sub /\.\d*/, ""
+      number.to_s.sub(/\.\d*/, "")
     end
 
     def map_reference
@@ -22,7 +23,7 @@ module OsMapRef
     end
 
     def build_map_reference
-      [grid_reference_prefix, short_easting, short_northing].join(' ')
+      [grid_reference_prefix, short_easting, short_northing].join(" ")
     end
 
     def grid_easting
@@ -74,7 +75,7 @@ module OsMapRef
     def map_reference_parts
       @map_reference_parts ||= map_reference.split
     end
-    
+
     def prefix
       map_reference_parts[0]
     end
@@ -83,13 +84,13 @@ module OsMapRef
     # matching the map reference prefix. So 'ST 58901 71053' will return [1, 3]
     # which are the coordinates of the prefix 'ST' in the grid.
     def prefix_coordinates
-      @prefix_coordinates ||= get_prefix_coordinates
+      @prefix_coordinates ||= determine_prefix_coordinates
     end
-    
-    def get_prefix_coordinates
+
+    def determine_prefix_coordinates
       matrix.index(prefix) || raise_prefix_error(prefix)
     end
-    
+
     def raise_prefix_error(prefix)
       raise OsMapRef::Error, "Unable to process map reference #{@map_reference}: #{prefix} not found"
     end
