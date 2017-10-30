@@ -1,25 +1,31 @@
+# Needed as part of submitting test coverage statistics to CodeClimate as part
+# of the build
+# https://docs.codeclimate.com/v1.0/docs/travis-ci-test-coverage
+env:
+  global:
+    - CC_TEST_REPORTER_ID=24227f9ca02e7a9609194892c281f53f56c266a28f030ff6f0ee85b54db36efe
+
 language: ruby
 cache: bundler
 
 rvm:
   - 2.2.3
 
-before_install: gem install bundler -v 1.11.2
+# Travis CI clones repositories to a depth of 50 commits, which is only really
+# useful if you are performing git operations.
+# https://docs.travis-ci.com/user/customizing-the-build/#Git-Clone-Depth
+git:
+  depth: 3
 
-# Have this option to stop travis-ci building twice. Currently we have travis set to build both
-# PR's and pushes. However this means when we push to a PR we have to wait for Travis to finish
-# 2 builds. If we unticked 'pushes' when the PR was finally merged that would not be built. The
-# brute force approach would be to untick build PR's and just build all pushes. We instead have
-# gone with the approach outlined here http://stackoverflow.com/a/31882307
-branches:
-  only:
-    - master
+before_script:
+  # Setup to support the CodeClimate test coverage submission
+  # As per CodeClimate's documentation, they suggest only running
+  # ./cc-test-reporter commands on travis-ci push builds only. Hence we wrap all
+  # the codeclimate test coverage related commands in a check that tests if we
+  # are in a pull request or not.
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter; fi
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then chmod +x ./cc-test-reporter; fi
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter before-build; fi
 
-# This section was added as per https://docs.travis-ci.com/user/code-climate/
-# To protect our codeclimate stats rather than adding the Codeclimate API key for ea-area_lookup
-# in the open we used this guide https://docs.travis-ci.com/user/encryption-keys/ to encryt the
-# value. Essentially install travis gem, then run `travis encrypt <my_code_climate_api_key>`
-addons:
-  code_climate:
-    repo_token:
-      secure: "G1IaZNDiJe95Ng3jvDeg4gToha86SNgDOu7JzNwb9+qV6I0R10vqKEhGwlYQ4eazoO3VE3vzzIWszY1gpbtkgVTkC4mkBawTyiZevhMtFRfXjbz2WTLmMszJf2ysIFaMmlnfNrjLwQWrGx7jhGm/nt7hsrhcg1MkO2EmuOhryKkT7Z9W2lnr1oIu/XwUDbY6ydqCfGq+e/a+bA+4LcQ20PCSGL0KnggcSJKSAX2O51GpeQ5Yofjm2XJ/Hagy3VSj1rGPCMnlEHLwydebqI/lYhQJUcv7rZAIUWDJ3Rg68sVd6WixpnY3n4GcTU+fnSYbUAqtLyNOoKGxBhXhljgoOyx/HjxWe8ymUX35xEswF0aq8Q0PoqUvRVBu50gsla0c7vhCm4sYF3KxxprzjTy5RHEokuow2Fe4Wa4ulM2U2PqQy6LzvFHjJzKMAfhx7thtstTRFF//buL9OBYIAtG/dnD+Jfh2K7zNTjnQf0pYMhTj/VPK78sR2h7SlP1yEYCyy+AqyFiEcq/49giJ/c7yLW16xIVENQsJ8dfR8SXW0d4MGOoVP0pPOh/+OiO3PY2Yb99A6uZAKP9l1+hkyAE6qDhLzoO1WutsKeX2IrZXbPrfi94JifVnqT9wJLpz6e57powESFAp1ROcJChFJfEWL/RKBK7dVzMWFt5WK0AWUIo="
+after_script:
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi

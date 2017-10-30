@@ -1,5 +1,23 @@
-require "codeclimate-test-reporter"
-CodeClimate::TestReporter.start
+# Code coverage
+require "simplecov"
+
+SimpleCov.start do
+  # any custom configs like groups and filters can be here at a central place
+  
+  # Standard filters
+  add_filter "lib/os_map_ref/version"
+  # It's standard to ignore the spec folder when determining coverage
+  add_filter "/spec/"
+
+  # You can make Simplecov ignore sections of by wrapping them in # :nocov:
+  # tags. However without knowledge of this `nocov` doesn't mean a lot so here
+  # we take advantage of a feature that allows us to use a custom token to do
+  # the same thing `nocov` does. Now in our code any sections we want to exclude
+  # from test coverage stats we wrap in # :simplecov_ignore: tokens.
+  # https://github.com/colszowka/simplecov#ignoringskipping-code
+  nocov_token 'simplecov_ignore'
+end
+
 require_relative "../lib/os_map_ref"
 
 RSpec.configure do |config|
