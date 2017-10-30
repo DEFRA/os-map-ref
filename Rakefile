@@ -1,5 +1,5 @@
 require "bundler/gem_tasks"
-require "rake/testtask"
+require "github_changelog_generator/task"
 
 begin
   require "rspec/core/rake_task"
@@ -11,3 +11,6 @@ end
 task test: :spec
 
 task default: :test
+
+GitHubChangelogGenerator::RakeTask.new :changelog do |config|
+end
