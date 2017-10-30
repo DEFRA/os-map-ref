@@ -1,11 +1,12 @@
 # Change Log
 
-## [Unreleased](https://github.com/DEFRA/os_map_ref/tree/HEAD)
-
-[Full Changelog](https://github.com/DEFRA/os_map_ref/compare/v0.4.1...HEAD)
+## [v0.4.2](https://github.com/DEFRA/os_map_ref/tree/v0.4.2) (2017-10-30)
+[Full Changelog](https://github.com/DEFRA/os_map_ref/compare/v0.4.1...v0.4.2)
 
 **Merged pull requests:**
 
+- Bump version no. for release of v0.4.2 [\#19](https://github.com/DEFRA/os_map_ref/pull/19) ([Cruikshanks](https://github.com/Cruikshanks))
+- Add changelog and ability to auto generate it [\#18](https://github.com/DEFRA/os_map_ref/pull/18) ([Cruikshanks](https://github.com/Cruikshanks))
 - Fix badge links in README pointing 2 old EA Github [\#17](https://github.com/DEFRA/os_map_ref/pull/17) ([Cruikshanks](https://github.com/Cruikshanks))
 - Fix and update codeclimate and travis-ci config [\#16](https://github.com/DEFRA/os_map_ref/pull/16) ([Cruikshanks](https://github.com/Cruikshanks))
 - Add std rubocop config and resolve issues found [\#15](https://github.com/DEFRA/os_map_ref/pull/15) ([Cruikshanks](https://github.com/Cruikshanks))
