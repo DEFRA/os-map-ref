@@ -3,7 +3,7 @@
 # https://docs.codeclimate.com/v1.0/docs/travis-ci-test-coverage
 env:
   global:
-    - CC_TEST_REPORTER_ID=24227f9ca02e7a9609194892c281f53f56c266a28f030ff6f0ee85b54db36efe
+    - CC_TEST_REPORTER_ID=df8a9d5af846f573eb944b1e7ba0ea40ec79efe0f3350af095054e2d5a6f2d56
 
 language: ruby
 cache: bundler
