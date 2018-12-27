@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "spec_helper"
 
 describe OsMapRef::InputProcessor do
@@ -101,9 +103,7 @@ describe OsMapRef::InputProcessor do
     end
 
     it "should raise error on unknown input" do
-      expect {
-        described_class.new("unknown").params
-      }.to raise_error(OsMapRef::Error)
+      expect { described_class.new("unknown").params }.to raise_error(OsMapRef::Error)
     end
   end
 end
