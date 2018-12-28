@@ -31,3 +31,11 @@ before_script:
 
 after_script:
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
+
+deploy:
+  provider: rubygems
+  gem: os_map_ref
+  on:
+    tags: true
+  api_key:
+    secure: "v/ZYjyakCM5T3wtbdMBcG4OXgoVJoZCQ+Bapc6PImcpEN2UVtr2OSPjRsD6PbEbjzaiy/RAIURDMql2NoP3lUxUeVWAGsNgZvvjNzt3Gd5P47wC4k1peMY4RBuh9yyTn8wtsg3yUEe0V7cmB7SVOL08PmOWU5OcfAAZOTJWaKHsFV1ClxSDMeBbhwwGHRj4xP/+Alx08t62VpC1SrHkJvTM0oAlm+AP3Y/8a4Hcu0VhgPjof4nCeZHgqrEYthtC77Uk/EJTlW5FzEVXIbgSmWVq0OTdVXinxPrI1MizqSsZx5o/CbBCm8zzsZBTTVqMtWBae/AsQar8wMk1Cq4IEu1iOh2ra312RSClqqjsiVz80iRc+lCEpTz+co2V/qU4lg8rWeNg2j1HJLr8GTjeaOvqmjJT2A5rZsSngHty3uddkZwjvgBO/zOjp3BPpP+PaowWviYhDmBxDLyVnwSs2KG9otBucmxPAdr9WUE+jqSkOVjYdTAG3eyKaYkTX5QjDieYcBKhyjgkOXtawN8z+qJQo6LH7+TDRoMMZ0LIFKr6nqV77E2xxREEyjfND3MM73nJKTYWjP1/zBCHmUNWMcGRLTWoO2mXVrr0N7+SNAiNpO429jPj5ZifW7Opi7ptiLwCAdCJI0gQe9A7DMW5GAloXLsUjkk3YmXRssUW2KF8="
