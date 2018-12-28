@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "os_map_ref/error"
 require "os_map_ref/input_processor"
 require "os_map_ref/location"

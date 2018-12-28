@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "spec_helper"
 
 describe OsMapRef::Location do
@@ -183,9 +185,7 @@ describe OsMapRef::Location do
         let(:location) { described_class.new map_reference: map_reference }
 
         it "should raise an exception" do
-          expect {
-            location.easting
-          }.to raise_error(OsMapRef::Error)
+          expect { location.easting }.to raise_error(OsMapRef::Error)
         end
 
       end

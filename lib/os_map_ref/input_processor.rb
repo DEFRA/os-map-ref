@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module OsMapRef
   class InputProcessor
     attr_reader :input

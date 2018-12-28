@@ -1,16 +1,29 @@
-require "bundler/gem_tasks"
-require "github_changelog_generator/task"
+# frozen_string_literal: true
 
 begin
-  require "rspec/core/rake_task"
-  RSpec::Core::RakeTask.new(:spec)
-rescue LoadError => err
-  puts "Load error: #{err}"
+  require "bundler/setup"
+rescue LoadError
+  puts "You must `gem install bundler` and `bundle install` to run rake tasks"
 end
 
-task test: :spec
+Bundler::GemHelper.install_tasks
 
-task default: :test
+# This is wrapped to prevent an error when rake is called in environments where
+# rspec may not be available, e.g. production. As such we don't need to handle
+# the error.
+# rubocop:disable Lint/HandleExceptions
+begin
+  require "rspec/core/rake_task"
+
+  RSpec::Core::RakeTask.new(:spec)
+
+  task default: :spec
+rescue LoadError
+  # no rspec available
+end
+# rubocop:enable Lint/HandleExceptions
+
+require "github_changelog_generator/task"
 
 GitHubChangelogGenerator::RakeTask.new :changelog do |config|
 end

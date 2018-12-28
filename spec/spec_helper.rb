@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 # Code coverage
 require "simplecov"
 
 SimpleCov.start do
   # any custom configs like groups and filters can be here at a central place
-  
+
   # Standard filters
   add_filter "lib/os_map_ref/version"
   # It's standard to ignore the spec folder when determining coverage
@@ -15,7 +17,7 @@ SimpleCov.start do
   # the same thing `nocov` does. Now in our code any sections we want to exclude
   # from test coverage stats we wrap in # :simplecov_ignore: tokens.
   # https://github.com/colszowka/simplecov#ignoringskipping-code
-  nocov_token 'simplecov_ignore'
+  nocov_token "simplecov_ignore"
 end
 
 require_relative "../lib/os_map_ref"

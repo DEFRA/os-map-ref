@@ -1,10 +1,9 @@
 # OsMapRef
 
-[![Build Status](https://travis-ci.org/DEFRA/os_map_ref.svg?branch=master)](https://travis-ci.org/DEFRA/os_map_ref)
-[![Maintainability](https://api.codeclimate.com/v1/badges/759edb337395f3c0e9d2/maintainability)](https://codeclimate.com/github/DEFRA/os_map_ref/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/759edb337395f3c0e9d2/test_coverage)](https://codeclimate.com/github/DEFRA/os_map_ref/test_coverage)
-[![security](https://hakiri.io/github/DEFRA/os_map_ref/master.svg)](https://hakiri.io/github/DEFRA/os_map_ref/master)
-[![Dependency Status](https://dependencyci.com/github/DEFRA/os_map_ref/badge)](https://dependencyci.com/github/DEFRA/os_map_ref)
+[![Build Status](https://travis-ci.org/DEFRA/os-map-ref.svg?branch=master)](https://travis-ci.org/DEFRA/os-map-ref)
+[![Maintainability](https://api.codeclimate.com/v1/badges/17df026b62cc3912f842/maintainability)](https://codeclimate.com/github/DEFRA/os-map-ref/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/17df026b62cc3912f842/test_coverage)](https://codeclimate.com/github/DEFRA/os-map-ref/test_coverage)
+[![security](https://hakiri.io/github/DEFRA/os-map-ref/master.svg)](https://hakiri.io/github/DEFRA/os-map-ref/master)
 [![Gem Version](https://badge.fury.io/rb/os_map_ref.svg)](https://badge.fury.io/rb/os_map_ref)
 
 This gem allows you to gather U.K. Ordnance Survey Eastings, North, and Map
@@ -83,9 +82,7 @@ puts "Longitude = #{location.lon} in radians."
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies.
-Then, run `rake test` to run the tests. You can also run `bin/console`
-for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `bundle exec rake` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 To install this gem onto your local machine, run `bundle exec rake install`.
 

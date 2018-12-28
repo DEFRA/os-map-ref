@@ -1,21 +1,19 @@
-# Needed as part of submitting test coverage statistics to CodeClimate as part
-# of the build
-# https://docs.codeclimate.com/v1.0/docs/travis-ci-test-coverage
 env:
   global:
-    - CC_TEST_REPORTER_ID=df8a9d5af846f573eb944b1e7ba0ea40ec79efe0f3350af095054e2d5a6f2d56
+    - CC_TEST_REPORTER_ID=3d08e1d89788b71e86049ab5a33c842521c0d8188528e4d51b614575f79f2cd7
 
 language: ruby
+rvm: 2.4.2
 cache: bundler
-
-rvm:
-  - 2.2.3
 
 # Travis CI clones repositories to a depth of 50 commits, which is only really
 # useful if you are performing git operations.
 # https://docs.travis-ci.com/user/customizing-the-build/#Git-Clone-Depth
 git:
   depth: 3
+
+before_install:
+  - export TZ=UTC
 
 before_script:
   # Setup to support the CodeClimate test coverage submission
@@ -26,6 +24,10 @@ before_script:
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter; fi
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then chmod +x ./cc-test-reporter; fi
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter before-build; fi
+  # Run rubocop. It's installed as a dependency (hence no install step) as this
+  # allows projects to control the version they are using (rather than getting)
+  # surprise build failures.
+  - bundle exec rubocop
 
 after_script:
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
