@@ -1,61 +1,76 @@
 # Change Log
 
-## [v0.4.2](https://github.com/DEFRA/os_map_ref/tree/v0.4.2) (2017-10-30)
-[Full Changelog](https://github.com/DEFRA/os_map_ref/compare/v0.4.1...v0.4.2)
+## [v0.5.0](https://github.com/DEFRA/os-map-ref/tree/v0.5.0) (2018-12-28)
+[Full Changelog](https://github.com/DEFRA/os-map-ref/compare/v0.4.2...v0.5.0)
 
 **Merged pull requests:**
 
-- Bump version no. for release of v0.4.2 [\#19](https://github.com/DEFRA/os_map_ref/pull/19) ([Cruikshanks](https://github.com/Cruikshanks))
-- Add changelog and ability to auto generate it [\#18](https://github.com/DEFRA/os_map_ref/pull/18) ([Cruikshanks](https://github.com/Cruikshanks))
-- Fix badge links in README pointing 2 old EA Github [\#17](https://github.com/DEFRA/os_map_ref/pull/17) ([Cruikshanks](https://github.com/Cruikshanks))
-- Fix and update codeclimate and travis-ci config [\#16](https://github.com/DEFRA/os_map_ref/pull/16) ([Cruikshanks](https://github.com/Cruikshanks))
-- Add std rubocop config and resolve issues found [\#15](https://github.com/DEFRA/os_map_ref/pull/15) ([Cruikshanks](https://github.com/Cruikshanks))
-- Correct details in gemspec [\#14](https://github.com/DEFRA/os_map_ref/pull/14) ([Cruikshanks](https://github.com/Cruikshanks))
-- Integrate project with Hakiri [\#13](https://github.com/DEFRA/os_map_ref/pull/13) ([Cruikshanks](https://github.com/Cruikshanks))
+- Update travis config to enable auto deployments [\#22](https://github.com/DEFRA/os-map-ref/pull/22) ([Cruikshanks](https://github.com/Cruikshanks))
+- Update to match latest CI conventions [\#21](https://github.com/DEFRA/os-map-ref/pull/21) ([Cruikshanks](https://github.com/Cruikshanks))
+- Update changelog for 0.4.2 release [\#20](https://github.com/DEFRA/os-map-ref/pull/20) ([Cruikshanks](https://github.com/Cruikshanks))
 
-## [v0.4.1](https://github.com/DEFRA/os_map_ref/tree/v0.4.1) (2016-05-17)
-[Full Changelog](https://github.com/DEFRA/os_map_ref/compare/v0.4.0...v0.4.1)
+## [v0.4.2](https://github.com/DEFRA/os-map-ref/tree/v0.4.2) (2017-10-30)
+[Full Changelog](https://github.com/DEFRA/os-map-ref/compare/v0.4.1...v0.4.2)
+
+**Implemented enhancements:**
+
+- Add changelog and ability to auto generate it [\#18](https://github.com/DEFRA/os-map-ref/pull/18) ([Cruikshanks](https://github.com/Cruikshanks))
+- Integrate project with Hakiri [\#13](https://github.com/DEFRA/os-map-ref/pull/13) ([Cruikshanks](https://github.com/Cruikshanks))
+
+**Fixed bugs:**
+
+- Fix badge links in README pointing 2 old EA Github [\#17](https://github.com/DEFRA/os-map-ref/pull/17) ([Cruikshanks](https://github.com/Cruikshanks))
+- Fix and update codeclimate and travis-ci config [\#16](https://github.com/DEFRA/os-map-ref/pull/16) ([Cruikshanks](https://github.com/Cruikshanks))
+- Add std rubocop config and resolve issues found [\#15](https://github.com/DEFRA/os-map-ref/pull/15) ([Cruikshanks](https://github.com/Cruikshanks))
+- Correct details in gemspec [\#14](https://github.com/DEFRA/os-map-ref/pull/14) ([Cruikshanks](https://github.com/Cruikshanks))
 
 **Merged pull requests:**
 
-- Confirm codeclimate api key [\#12](https://github.com/DEFRA/os_map_ref/pull/12) ([Cruikshanks](https://github.com/Cruikshanks))
-- Integrate project with codeclimate [\#11](https://github.com/DEFRA/os_map_ref/pull/11) ([Cruikshanks](https://github.com/Cruikshanks))
-- Add version badge to README [\#10](https://github.com/DEFRA/os_map_ref/pull/10) ([Cruikshanks](https://github.com/Cruikshanks))
+- Bump version no. for release of v0.4.2 [\#19](https://github.com/DEFRA/os-map-ref/pull/19) ([Cruikshanks](https://github.com/Cruikshanks))
 
-## [v0.4.0](https://github.com/DEFRA/os_map_ref/tree/v0.4.0) (2016-04-05)
-[Full Changelog](https://github.com/DEFRA/os_map_ref/compare/v0.3.0...v0.4.0)
+## [v0.4.1](https://github.com/DEFRA/os-map-ref/tree/v0.4.1) (2016-05-17)
+[Full Changelog](https://github.com/DEFRA/os-map-ref/compare/v0.4.0...v0.4.1)
 
 **Merged pull requests:**
 
-- Correct error in grid: skipped K instead of I in right-hand portion [\#9](https://github.com/DEFRA/os_map_ref/pull/9) ([reggieb](https://github.com/reggieb))
-- Fix/improve range of inputs accepted [\#8](https://github.com/DEFRA/os_map_ref/pull/8) ([reggieb](https://github.com/reggieb))
+- Confirm codeclimate api key [\#12](https://github.com/DEFRA/os-map-ref/pull/12) ([Cruikshanks](https://github.com/Cruikshanks))
+- Integrate project with codeclimate [\#11](https://github.com/DEFRA/os-map-ref/pull/11) ([Cruikshanks](https://github.com/Cruikshanks))
+- Add version badge to README [\#10](https://github.com/DEFRA/os-map-ref/pull/10) ([Cruikshanks](https://github.com/Cruikshanks))
 
-## [v0.3.0](https://github.com/DEFRA/os_map_ref/tree/v0.3.0) (2016-04-04)
-[Full Changelog](https://github.com/DEFRA/os_map_ref/compare/v0.2.0...v0.3.0)
+## [v0.4.0](https://github.com/DEFRA/os-map-ref/tree/v0.4.0) (2016-04-05)
+[Full Changelog](https://github.com/DEFRA/os-map-ref/compare/v0.3.0...v0.4.0)
+
+**Merged pull requests:**
+
+- Correct error in grid: skipped K instead of I in right-hand portion [\#9](https://github.com/DEFRA/os-map-ref/pull/9) ([reggieb](https://github.com/reggieb))
+- Fix/improve range of inputs accepted [\#8](https://github.com/DEFRA/os-map-ref/pull/8) ([reggieb](https://github.com/reggieb))
+
+## [v0.3.0](https://github.com/DEFRA/os-map-ref/tree/v0.3.0) (2016-04-04)
+[Full Changelog](https://github.com/DEFRA/os-map-ref/compare/v0.2.0...v0.3.0)
 
 **Closed issues:**
 
-- Convert tests to Rspec [\#2](https://github.com/DEFRA/os_map_ref/issues/2)
+- Convert tests to Rspec [\#2](https://github.com/DEFRA/os-map-ref/issues/2)
 
 **Merged pull requests:**
 
-- Changes tests over to rspec [\#7](https://github.com/DEFRA/os_map_ref/pull/7) ([reggieb](https://github.com/reggieb))
-- Update contribution section in README [\#6](https://github.com/DEFRA/os_map_ref/pull/6) ([Cruikshanks](https://github.com/Cruikshanks))
-- Update travis configuration for repo [\#5](https://github.com/DEFRA/os_map_ref/pull/5) ([Cruikshanks](https://github.com/Cruikshanks))
-- Bump version to 0.2.0 [\#4](https://github.com/DEFRA/os_map_ref/pull/4) ([reggieb](https://github.com/reggieb))
+- Changes tests over to rspec [\#7](https://github.com/DEFRA/os-map-ref/pull/7) ([reggieb](https://github.com/reggieb))
+- Update contribution section in README [\#6](https://github.com/DEFRA/os-map-ref/pull/6) ([Cruikshanks](https://github.com/Cruikshanks))
+- Update travis configuration for repo [\#5](https://github.com/DEFRA/os-map-ref/pull/5) ([Cruikshanks](https://github.com/Cruikshanks))
+- Bump version to 0.2.0 [\#4](https://github.com/DEFRA/os-map-ref/pull/4) ([reggieb](https://github.com/reggieb))
 
-## [v0.2.0](https://github.com/DEFRA/os_map_ref/tree/v0.2.0) (2016-03-30)
-[Full Changelog](https://github.com/DEFRA/os_map_ref/compare/v0.1.1...v0.2.0)
+## [v0.2.0](https://github.com/DEFRA/os-map-ref/tree/v0.2.0) (2016-03-30)
+[Full Changelog](https://github.com/DEFRA/os-map-ref/compare/v0.1.1...v0.2.0)
 
 **Merged pull requests:**
 
-- fixed typo in prefix matrix [\#3](https://github.com/DEFRA/os_map_ref/pull/3) ([kennyevil](https://github.com/kennyevil))
-- Add license details to README [\#1](https://github.com/DEFRA/os_map_ref/pull/1) ([Cruikshanks](https://github.com/Cruikshanks))
+- fixed typo in prefix matrix [\#3](https://github.com/DEFRA/os-map-ref/pull/3) ([kennyevil](https://github.com/kennyevil))
+- Add license details to README [\#1](https://github.com/DEFRA/os-map-ref/pull/1) ([Cruikshanks](https://github.com/Cruikshanks))
 
-## [v0.1.1](https://github.com/DEFRA/os_map_ref/tree/v0.1.1) (2016-03-24)
-[Full Changelog](https://github.com/DEFRA/os_map_ref/compare/v0.1.0...v0.1.1)
+## [v0.1.1](https://github.com/DEFRA/os-map-ref/tree/v0.1.1) (2016-03-24)
+[Full Changelog](https://github.com/DEFRA/os-map-ref/compare/v0.1.0...v0.1.1)
 
-## [v0.1.0](https://github.com/DEFRA/os_map_ref/tree/v0.1.0) (2016-03-23)
+## [v0.1.0](https://github.com/DEFRA/os-map-ref/tree/v0.1.0) (2016-03-23)
 
 
 \* *This Change Log was automatically generated by [github_changelog_generator](https://github.com/skywinder/Github-Changelog-Generator)*
