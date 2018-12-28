@@ -1,9 +1,9 @@
 # OsMapRef
 
-[![Build Status](https://travis-ci.org/DEFRA/os_map_ref.svg?branch=master)](https://travis-ci.org/DEFRA/os_map_ref)
-[![Maintainability](https://api.codeclimate.com/v1/badges/759edb337395f3c0e9d2/maintainability)](https://codeclimate.com/github/DEFRA/os_map_ref/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/759edb337395f3c0e9d2/test_coverage)](https://codeclimate.com/github/DEFRA/os_map_ref/test_coverage)
-[![security](https://hakiri.io/github/DEFRA/os_map_ref/master.svg)](https://hakiri.io/github/DEFRA/os_map_ref/master)
+[![Build Status](https://travis-ci.org/DEFRA/os-map-ref.svg?branch=master)](https://travis-ci.org/DEFRA/os-map-ref)
+[![Maintainability](https://api.codeclimate.com/v1/badges/17df026b62cc3912f842/maintainability)](https://codeclimate.com/github/DEFRA/os-map-ref/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/17df026b62cc3912f842/test_coverage)](https://codeclimate.com/github/DEFRA/os-map-ref/test_coverage)
+[![security](https://hakiri.io/github/DEFRA/os-map-ref/master.svg)](https://hakiri.io/github/DEFRA/os-map-ref/master)
 [![Gem Version](https://badge.fury.io/rb/os_map_ref.svg)](https://badge.fury.io/rb/os_map_ref)
 
 This gem allows you to gather U.K. Ordnance Survey Eastings, North, and Map
