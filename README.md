@@ -5,6 +5,7 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/17df026b62cc3912f842/test_coverage)](https://codeclimate.com/github/DEFRA/os-map-ref/test_coverage)
 [![security](https://hakiri.io/github/DEFRA/os-map-ref/master.svg)](https://hakiri.io/github/DEFRA/os-map-ref/master)
 [![Gem Version](https://badge.fury.io/rb/os_map_ref.svg)](https://badge.fury.io/rb/os_map_ref)
+[![Licence](https://img.shields.io/badge/Licence-OGLv3-blue.svg)](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3)
 
 This gem allows you to gather U.K. Ordnance Survey Eastings, North, and Map
 References from a range of text inputs.
