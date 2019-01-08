@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = ">= 2.4"
 
+  s.add_development_dependency "defra_ruby_style"
   # Allows us to automatically generate the change log from the tags, issues,
   # labels and pull requests on GitHub. Added as a dependency so all dev's have
   # access to it to generate a log, and so they are using the same version.
@@ -34,6 +35,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "github_changelog_generator"
   s.add_development_dependency "rake"
   s.add_development_dependency "rspec", "~> 3.8"
-  s.add_development_dependency "rubocop"
   s.add_development_dependency "simplecov"
 end
