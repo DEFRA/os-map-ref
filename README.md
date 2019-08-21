@@ -1,6 +1,6 @@
 # OsMapRef
 
-[![Build Status](https://travis-ci.org/DEFRA/os-map-ref.svg?branch=master)](https://travis-ci.org/DEFRA/os-map-ref)
+[![Build Status](https://travis-ci.com/DEFRA/os-map-ref.svg?branch=master)](https://travis-ci.com/DEFRA/os-map-ref)
 [![Maintainability](https://api.codeclimate.com/v1/badges/17df026b62cc3912f842/maintainability)](https://codeclimate.com/github/DEFRA/os-map-ref/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/17df026b62cc3912f842/test_coverage)](https://codeclimate.com/github/DEFRA/os-map-ref/test_coverage)
 [![security](https://hakiri.io/github/DEFRA/os-map-ref/master.svg)](https://hakiri.io/github/DEFRA/os-map-ref/master)
