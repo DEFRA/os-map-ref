@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
   # ~/.bash_profile (or equivalent)
   # https://github.com/skywinder/github-changelog-generator#github-token
   s.add_development_dependency "github_changelog_generator"
+  s.add_development_dependency "pry-byebug"
   s.add_development_dependency "rake"
   s.add_development_dependency "rspec", "~> 3.8"
   s.add_development_dependency "simplecov", "~> 0.17.1"
