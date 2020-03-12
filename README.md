@@ -1,8 +1,8 @@
 # OsMapRef
 
 [![Build Status](https://travis-ci.com/DEFRA/os-map-ref.svg?branch=master)](https://travis-ci.com/DEFRA/os-map-ref)
-[![Maintainability](https://api.codeclimate.com/v1/badges/17df026b62cc3912f842/maintainability)](https://codeclimate.com/github/DEFRA/os-map-ref/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/17df026b62cc3912f842/test_coverage)](https://codeclimate.com/github/DEFRA/os-map-ref/test_coverage)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_os-map-ref&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=DEFRA_os-map-ref)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=DEFRA_os-map-ref&metric=coverage)](https://sonarcloud.io/dashboard?id=DEFRA_os-map-ref)
 [![security](https://hakiri.io/github/DEFRA/os-map-ref/master.svg)](https://hakiri.io/github/DEFRA/os-map-ref/master)
 [![Gem Version](https://badge.fury.io/rb/os_map_ref.svg)](https://badge.fury.io/rb/os_map_ref)
 [![Licence](https://img.shields.io/badge/Licence-OGLv3-blue.svg)](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3)
