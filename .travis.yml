@@ -1,36 +1,27 @@
-env:
-  global:
-    - CC_TEST_REPORTER_ID=3d08e1d89788b71e86049ab5a33c842521c0d8188528e4d51b614575f79f2cd7
+dist: trusty
+
+addons:
+  sonarcloud:
+    organization: "defra"
 
 language: ruby
 rvm: 2.4.2
 cache: bundler
 
-# Travis CI clones repositories to a depth of 50 commits, which is only really
-# useful if you are performing git operations.
-# https://docs.travis-ci.com/user/customizing-the-build/#Git-Clone-Depth
+# Travis CI uses shallow clone to speed up build times, but a truncated SCM
+# history may cause issues when SonarCloud computes blame data. To avoid this,
+# you can access the full SCM history with `depth: false`
 git:
-  depth: 3
+  depth: false
 
 before_install:
   - export TZ=UTC
+  - gem install -v 1.17.3 bundler --no-rdoc --no-ri
 
-before_script:
-  # Setup to support the CodeClimate test coverage submission
-  # As per CodeClimate's documentation, they suggest only running
-  # ./cc-test-reporter commands on travis-ci push builds only. Hence we wrap all
-  # the codeclimate test coverage related commands in a check that tests if we
-  # are in a pull request or not.
-  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter; fi
-  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then chmod +x ./cc-test-reporter; fi
-  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter before-build; fi
-  # Run rubocop. It's installed as a dependency (hence no install step) as this
-  # allows projects to control the version they are using (rather than getting)
-  # surprise build failures.
-  - bundle exec rubocop
-
-after_script:
-  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
+script:
+  - bundle exec rubocop --format=json --out=rubocop-result.json
+  - bundle exec rspec
+  - sonar-scanner
 
 deploy:
   provider: rubygems
