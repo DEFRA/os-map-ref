@@ -11,10 +11,10 @@ Gem::Specification.new do |s|
   s.authors       = ["Defra"]
   s.email         = ["alan.cruikshanks@environment-agency.gov.uk"]
   s.homepage      = "https://github.com/DEFRA/os-map-ref"
-  # rubocop:disable Metrics/LineLength
+  # rubocop:disable Layout/LineLength
   s.summary       = "A tool to help handle UK Ordnance Survey map references, in particular to convert them to other coordinate systems"
   s.description   = "This gem allows you to gather U.K. Ordnance Survey Eastings, North, and Map References from a range of text inputs; and output them in a consistent manner"
-  # rubocop:enable Metrics/LineLength
+  # rubocop:enable Layout/LineLength
   s.license       = "The Open Government Licence (OGL) Version 3"
 
   s.files = Dir["{bin,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
