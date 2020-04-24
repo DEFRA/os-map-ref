@@ -11,7 +11,6 @@ Bundler::GemHelper.install_tasks
 # This is wrapped to prevent an error when rake is called in environments where
 # rspec may not be available, e.g. production. As such we don't need to handle
 # the error.
-# rubocop:disable Lint/SuppressedException
 begin
   require "rspec/core/rake_task"
 
@@ -21,7 +20,6 @@ begin
 rescue LoadError
   # no rspec available
 end
-# rubocop:enable Lint/SuppressedException
 
 require "github_changelog_generator/task"
 
