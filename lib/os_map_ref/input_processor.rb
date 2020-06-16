@@ -115,7 +115,7 @@ module OsMapRef
       eastings = /\d{3,6}/  # 3 to 6 digits
       northings = /\d{3,7}/ # 3 to 7 digits
       decimals = /\.\d+/    # decimal point and trailing digits
-      separator = /[\,\s]+/ # commas or spaces
+      separator = /[,\s]+/ # commas or spaces
       /(#{eastings}(#{decimals})?)#{separator}(#{northings}(#{decimals})?)/
     end
   end
