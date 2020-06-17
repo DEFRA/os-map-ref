@@ -24,7 +24,7 @@ module OsMapRef
 end
 ```
 
-Commit the change and push to **master**. We don't create a PR for this as we rely on PR's to provide the content for our [CHANGELOG](CHANGELOG.md), so this would just make for a redundant entry.
+Commit the change and push to **main**. We don't create a PR for this as we rely on PR's to provide the content for our [CHANGELOG](CHANGELOG.md), so this would just make for a redundant entry.
 
 ## Tag the repo
 
@@ -47,16 +47,16 @@ With the new version published we can update the [CHANGELOG](CHANGELOG.md). This
 bundle exec rake changelog
 ```
 
-Commit the changes to `CHANGELOG.md` and push to **master**. Again like the version change we don't create a PR for this as we don't want PR's for updating the CHANGELOG becoming noise in its content.
+Commit the changes to `CHANGELOG.md` and push to **main**. Again like the version change we don't create a PR for this as we don't want PR's for updating the CHANGELOG becoming noise in its content.
 
 ## Publish release
 
-In GitHub select the releases page for the project, then click 'Draft a new release'. Select the version tag we've just released, leave target as master, and set the release title as **Version #.#.#**. In the description simply copy the content from the CHANGELOG for the release.
+In GitHub select the releases page for the project, then click 'Draft a new release'. Select the version tag we've just released, leave target as **main**, and set the release title as **Version #.#.#**. In the description simply copy the content from the CHANGELOG for the release.
 
 ```markdown
 # v0.5.0 (2018-12-28)
 
-[Full changelog](https://github.com/DEFRA/os-map-ref/blob/master/CHANGELOG.md#v050-2018-12-28)
+[Full changelog](https://github.com/DEFRA/os-map-ref/blob/main/CHANGELOG.md#v050-2018-12-28)
 
 ## Merged pull requests:
 
