@@ -34,7 +34,7 @@ jobs:
       - name: Run unit tests
         run: |
           bundle exec rspec
-          sed -i 's/\/home\/runner\/work\/defra-ruby-alert\/defra-ruby-alert\//\/github\/workspace\//g' coverage/.resultset.json
+          sed -i 's/\/home\/runner\/work\/os-map-ref\/os-map-ref\//\/github\/workspace\//g' coverage/.resultset.json
 
       - name: Analyze with SonarCloud
         uses: sonarsource/sonarcloud-github-action@master
