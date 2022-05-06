@@ -51,6 +51,27 @@ location.northing      == 171043
 location.map_reference == 'ST 58801 71043'
 ```
 
+### Handling short easting/northing input values
+If the full input easting or northing value has fewer than six digits, for example a northing value for a location in the south of England, the input value should be left-zero-padded within the input string. For example:
+
+*Without* a leading zero on the northing input value, the map reference is for a location in Fife, Scotland:
+```ruby
+location = OsMapRef::Location.for '358801, 71043'
+
+location.easting       == 358801
+location.northing      == 710430
+location.map_reference == 'NO 58801 10430'
+```
+
+Whereas *with* a leading zero on the northing input value, the map reference is for a location in Dorset, England.
+```ruby
+location = OsMapRef::Location.for '358801, 071043'
+
+location.easting       == 358801
+location.northing      == 071043
+location.map_reference == 'SY 58801 71043'
+```
+
 ### From OS Map Reference to Longitude and Latitude
 
 If your end result needs to be longitude and latitude, you can combine the
